@@ -1,123 +1,269 @@
-<h1 align="center">Data Science Capstone</h1>
-<h2 align="center">Previsão de Arquivos Maliciosos usando Machine Learning</h2>
+<h1 align="center">Detecção de Ataques Cibernéticos com Machine Learning</h1>
 
-Este projeto é uma aplicação **Streamlit** feita para realizar previsões de ataques cibernéticos com base em modelos de Machine Learning.
+<p align="center">
+  Sistema de classificação de tráfego de rede utilizando Machine Learning para identificação de tráfego benigno e diferentes tipos de ataques cibernéticos.
+</p>
 
-## 🚀 Funcionalidades
+## Sobre o projeto
 
-- Upload de arquivos CSV com dados de tráfego de rede.
-- Detecção automática do tipo de classificação: Binária ou Multiclasse.
-- Escolha de modelos de ML previamente treinados.
-- Visualização dos resultados com gráficos.
-- Barra lateral com breves informações sobre o projeto.
+Este projeto aplica técnicas de **Data Science e Machine Learning** à análise de tráfego de rede com o objetivo de identificar padrões associados a atividades maliciosas.
 
-## 🧩 Requisitos
+O desenvolvimento contempla diferentes etapas de um pipeline de Ciência de Dados, incluindo preparação dos dados, análise exploratória, engenharia de atributos, treinamento de modelos e disponibilização das previsões por meio de uma aplicação interativa desenvolvida em **Streamlit**.
 
-Certifique-se de ter instalado:
+A solução permite trabalhar com dois tipos de problema:
 
-- Ter instalado na máquina o Python 3.8+;
-- Ter instalado na máquina o Pip (instalação normalmente ocorre junto com o python);
-- Ter o Git/Github instalado na máquina;
-- Ter feito o download do arquivo modelos.pkl e colocado o mesmo na pasta /notebooks;
-- Os dados de teste devem estar no formato .csv.
-- Os seguintes pacotes Python:
-```bash
-pip install streamlit pandas numpy joblib matplotlib seaborn scikit-learn xgboost streamlit-lottie os datetime requests
-```
+- **Classificação Binária:** diferencia tráfego benigno de tráfego malicioso.
+- **Classificação Multiclasse:** identifica diferentes categorias de ataques presentes no tráfego de rede.
 
-## 📁 Estrutura do Projeto
+## Pipeline do projeto
 
-```
+O projeto foi dividido em quatro principais etapas:
+
+### 1. Pré-processamento dos dados
+
+Preparação dos dados utilizados pelos modelos de Machine Learning, incluindo limpeza, tratamento e padronização das informações.
+
+### 2. Análise Exploratória de Dados (EDA)
+
+Investigação das características dos dados de tráfego de rede para identificar distribuições, padrões e diferenças entre tráfego benigno e malicioso.
+
+### 3. Feature Engineering
+
+Preparação e seleção das variáveis utilizadas no treinamento dos modelos preditivos.
+
+### 4. Machine Learning
+
+Treinamento e avaliação de diferentes algoritmos para os cenários de classificação binária e multiclasse.
+
+## Modelos utilizados
+
+### Classificação Binária
+
+- Logistic Regression
+- Support Vector Machine (SVM)
+
+### Classificação Multiclasse
+
+- Random Forest
+- K-Nearest Neighbors (KNN)
+- XGBoost
+
+Os modelos treinados são utilizados posteriormente pela aplicação Streamlit para realizar previsões sobre novos dados de tráfego de rede.
+
+## Funcionalidades da aplicação
+
+- Upload de arquivos CSV contendo dados de tráfego de rede
+- Identificação automática do tipo de classificação quando possível
+- Seleção manual entre classificação binária e multiclasse
+- Seleção do modelo de Machine Learning
+- Execução de previsões
+- Exibição das probabilidades previstas
+- Visualização da distribuição das previsões
+- Gráficos para análise dos resultados
+- Heatmap das probabilidades na classificação multiclasse
+
+## Tecnologias
+
+- **Python**
+- **Pandas**
+- **NumPy**
+- **Scikit-learn**
+- **XGBoost**
+- **Matplotlib**
+- **Seaborn**
+- **Streamlit**
+- **Joblib**
+- **Jupyter Notebook**
+
+## Estrutura do projeto
+
+```text
 Data-Science-Capstone/
 ├── amostras/
-│   └── amostra_1.csv                      # Amostra de Teste 1
-│   └── amostra_2.csv                      # Amostra de Teste 2
-│   └── amostra_3.csv                      # Amostra de Teste 3
-│   └── amostra_4.csv                      # Amostra de Teste 4
-│   └── amostra_5.csv                      # Amostra de Teste 5
-│   └── amostra_6.csv                      # Amostra de Teste 6
+│   ├── amostra_1.csv
+│   ├── amostra_2.csv
+│   ├── amostra_3.csv
+│   ├── amostra_4.csv
+│   ├── amostra_5.csv
+│   └── amostra_6.csv
 │
 ├── notebooks/
-│   └── 1-data-preprocessing.ipynb         # Coleta e Preparação dos Dados
-│   └── 2-exploratory-data-analysis.ipynb  # Análise Exploratória dos Dados
-│   └── 3-feature-engineering              # Engenharia de Features
-│   └── 4-ml-models                        # Modelagem ML
-│   └── modelos.pkl                        # Modelos treinados
+│   ├── 1-data-preprocessing.ipynb
+│   ├── 2-exploratory-data-analysis.ipynb
+│   ├── 3-feature-engineering.ipynb
+│   └── 4-ml-models.ipynb
 │
 ├── scripts/
-│   ├── app.py                             # Aplicação Streamlit
-│   └── visuals.py                         # Funções visuais do app
+│   ├── app.py
+│   ├── arquivos.py
+│   └── visuals.py
 │
-├── README.md                              # Este arquivo
-├── requirements.txt                       # Pacotes necessários
+├── Resumo Executivo - Engenharia Reversa de Malware.pdf
+├── requirements.txt
+├── LICENSE
+└── README.md
 ```
 
-## 🛠️ Como Instalar e Executar
+## Como instalar e executar
 
 ### 1. Clone o repositório
 
-Abra o terminal e execute:
-
 ```bash
-git clone https://github.com/gut0oliveira/data-science-capstone.git
-cd data-science-capstone
+git clone https://github.com/gut0oliveira/Data-Science-Capstone.git
+cd Data-Science-Capstone
 ```
 
+### 2. Crie um ambiente virtual
 
-### 2. Instale as dependências
-Depois de executar os códigos acima, instale as dependências necessárias:
+```bash
+python -m venv .venv
+```
+
+No Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+No Linux/macOS:
+
+```bash
+source .venv/bin/activate
+```
+
+### 3. Instale as dependências
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Baixe o arquivo de (`modelos .pkl`)
+### 4. Baixe os modelos treinados
 
-```bash
-⚠️ATENÇÃO⚠️
-O arquivo modelos.pkl tem aproximadamente 111MB.
-O GitHub não permite arquivos desse tamanho, então ele está hospedado externamente.
-```
-- Clique aqui para baixar o arquivo: <a href="https://drive.google.com/uc?export=download&id=1G2KdSuNIB2AhkjIxHYltHwDCeeYp3XHn" target="_blank">modelos.pkl</a>
+O arquivo `modelos.pkl` possui aproximadamente **111 MB** e, por isso, não está armazenado diretamente neste repositório.
 
-- Após o download, coloque o arquivo dentro da pasta `/notebooks` do projeto.
+➡️ **[Baixar modelos.pkl](https://drive.google.com/uc?export=download&id=1G2KdSuNIB2AhkjIxHYltHwDCeeYp3XHn)**
 
-### 4. Acesse a pasta /scripts do projeto:
+Após o download, coloque o arquivo dentro da pasta:
 
-No terminal, navegue até a pasta onde está o arquivo `app.py`. Exemplo:
-
-```bash
-cd notebooks/scripts
-```
-Ou copie o caminho absoluto da pasta `/scripts` e cole no terminal assim:
-```bash
-cd "C:\Users\SeuUsuario\Documents\GitHub\data-science-capstone\notebooks\scripts"
+```text
+notebooks/modelos.pkl
 ```
 
-### 5. Rode o Streamlit:
+A estrutura deverá ficar assim:
 
-Execute o seguinte comando:
+```text
+notebooks/
+├── 1-data-preprocessing.ipynb
+├── 2-exploratory-data-analysis.ipynb
+├── 3-feature-engineering.ipynb
+├── 4-ml-models.ipynb
+└── modelos.pkl
+```
+
+### 5. Execute a aplicação
+
+Acesse a pasta `scripts`:
+
+```bash
+cd scripts
+```
+
+Execute o Streamlit:
+
 ```bash
 streamlit run app.py
 ```
-O navegador será aberto automaticamente em `http://localhost:8501`, onde você poderá interagir com a aplicação.
 
-## 📌 Observações
+A aplicação será disponibilizada localmente em:
 
-- O arquivo `modelos.pkl` precisa estar dentro da pasta `/notebooks` para o app funcionar corretamente.
-- Apenas arquivos `.csv` são aceitos.
+```text
+http://localhost:8501
+```
 
-## Aplicação
+## Como usar a aplicação
 
-Caso tenha feito todos os passos corretamente, você verá uma tela como essa abaixo:
+### 1. Faça o upload dos dados
 
-![image](https://github.com/user-attachments/assets/55744db9-be76-4eef-ba8b-abe72ded8d08)
+Na aplicação, faça upload de um arquivo `.csv` contendo os dados de tráfego de rede que serão analisados.
 
+Para facilitar os testes, o repositório possui arquivos de exemplo disponíveis na pasta:
 
-✅ Pronto! Agora você pode fazer upload de uma amostra.csv para testar os modelos de Machine Learning.
+```text
+amostras/
+```
 
-## 👨‍💻 Desenvolvedor
+### 2. Defina o tipo de classificação
 
-- **Nome**: Augusto Oliveira Silva
-- **Curso**: Ciência da Computação
-- **RA**: 22153474
+A aplicação trabalha com dois cenários:
+
+- **Classificação Binária:** identifica se o tráfego é benigno ou malicioso.
+- **Classificação Multiclasse:** identifica diferentes categorias de ataques.
+
+Quando o arquivo contém a coluna `Tipos de Ataques`, a aplicação identifica automaticamente o tipo de classificação com base nos dados disponíveis.
+
+Caso essa informação não esteja disponível, é possível selecionar manualmente entre:
+
+- Binário
+- Multiclasse
+
+### 3. Escolha o modelo
+
+Para **Classificação Binária**, estão disponíveis:
+
+- Logistic Regression
+- Support Vector Machine (SVM)
+
+Para **Classificação Multiclasse**, estão disponíveis:
+
+- Random Forest
+- K-Nearest Neighbors (KNN)
+- XGBoost
+
+### 4. Execute a previsão
+
+Após selecionar o modelo desejado, clique em:
+
+**🔍 Realizar Previsão**
+
+A aplicação processará os registros utilizando o modelo selecionado.
+
+### 5. Analise os resultados
+
+#### Classificação Binária
+
+A aplicação apresenta:
+
+- Probabilidade de tráfego benigno
+- Probabilidade de tráfego malicioso
+- Classe prevista para cada registro
+- Distribuição das previsões
+- Proporção entre tráfego benigno e malicioso
+
+#### Classificação Multiclasse
+
+A aplicação apresenta:
+
+- Probabilidade associada a cada classe de ataque
+- Classe prevista para cada registro
+- Distribuição das classes previstas
+- Heatmap das probabilidades de classificação
+
+## Interface da aplicação
+
+Caso todas as etapas tenham sido executadas corretamente, a aplicação apresentará uma interface semelhante à imagem abaixo:
+
+![Aplicação Streamlit](https://github.com/user-attachments/assets/55744db9-be76-4eef-ba8b-abe72ded8d08)
+
+Após carregar um dos arquivos disponíveis em `amostras/`, basta selecionar o modelo desejado e executar a previsão.
+
+## Documentação
+
+O repositório também contém um resumo executivo com uma visão geral do projeto, metodologia utilizada e principais etapas desenvolvidas:
+
+📄 **[Resumo Executivo — Engenharia Reversa de Malware](https://github.com/gut0oliveira/Data-Science-Capstone/blob/main/Resumo%20Executivo%20-%20Engenharia%20Reversa%20de%20Malware.pdf)**
+
+## Autor
+
+**Augusto Oliveira**
+
+[LinkedIn](https://www.linkedin.com/in/augusto-oS/) • [GitHub](https://github.com/gut0oliveira)
